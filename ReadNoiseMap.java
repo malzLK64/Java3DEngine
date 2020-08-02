@@ -12,24 +12,28 @@ import malz.gameengine.forms.Cube;
 public class ReadNoiseMap {
 	static int width, height;
 	static ArrayList<Integer> Colors = new ArrayList<Integer>();
+	public static String path;
 	
 		  public static void reader() throws IOException{
 		    BufferedImage img = null;
-		    File f = null;
+		    File file = null;
 
 		    //read image
 		    try{
-		      f = new File("/Users/Jaya/eclipse-workspace/3D Game Engine v.1.1/rec/noise.png");
-		      img = ImageIO.read(f);
+		      file = new File("/Users/Jaya/eclipse-workspace/3D Game Engine v.1.1/rec/noise.png");
+		      img = ImageIO.read(file);
+		      path = file.getAbsolutePath();
 		      
 		      width = img.getWidth();
 		      height = img.getHeight();
 		      
 		      int i = 0;
 		      
+		      //Set size of Map in Blocks.
+		      int size = 20;
 		      
-		      for (int x = 0; x < 10; x++) {
-				for (int y = 0; y < 10; y++) {
+		      for (int x = 0; x < size; x++) {
+				for (int y = 0; y < size; y++) {
 					int pixel = img.getRGB(x,y);
 					if(pixel == -16777216) {
 						Screen.Cubes.add(new Cube(x, y, 3, 1, 1, 1, Color.gray));
