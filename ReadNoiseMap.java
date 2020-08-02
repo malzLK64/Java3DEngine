@@ -20,7 +20,8 @@ public class ReadNoiseMap {
 
 		    //read image
 		    try{
-		      file = new File("/Users/Jaya/eclipse-workspace/3D Game Engine v.1.1/rec/noise.png");
+		      //Add Path here
+		      file = new File("");
 		      img = ImageIO.read(file);
 		      path = file.getAbsolutePath();
 		      
